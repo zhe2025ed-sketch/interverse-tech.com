@@ -132,7 +132,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.logo-img { width: 48px; height: auto; transition: transform var(--transition); }
+.logo-img { max-height: var(--header-h); width: auto; transition: transform var(--transition); }
 .logo:hover .logo-img { transform: scale(1.08) rotate(-3deg); }
 .logo-text { line-height: 1.2; }
 .site-title { font-size: 16px; margin: 0; font-family: var(--font-display); letter-spacing: 0.02em; }
@@ -1218,16 +1218,18 @@ textarea:focus-visible {
     padding: 16px;
     gap: 0;
     border-bottom: 1px solid var(--border);
-    transform: translateY(-110%);
+    transform: translateY(-150%);
     opacity: 0;
     transition: all var(--transition);
     box-shadow: var(--shadow-lg);
   }
   #primary-menu.open { transform: translateY(0); opacity: 1; }
-  #primary-menu li a { padding: 14px 16px; border-radius: var(--radius-sm); min-height: 44px; display: flex; align-items: center; }
+  #primary-menu li a { padding: 10px 16px; border-radius: var(--radius-sm); min-height: 40px; display: flex; align-items: center; font-size: 12px; }
   #primary-menu li.current-menu-item a { color: #fff; }
-  .hamburger { display: flex; }
-  .hero .container { flex-direction: column; text-align: center; gap: 30px; }
+  .logo-text { display: none; }
+  .logo-img { width: 48px; max-height: none; }
+  .hamburger { display: flex; position: relative; z-index: 2; }
+  .hero .container { flex-direction: column; text-align: center; gap: 0; }
   .hero-logo { flex: 0 0 140px; }
   .hero-logo img { width: 140px; }
   .grid-2 { grid-template-columns: 1fr; gap: 32px; }
@@ -1243,8 +1245,9 @@ textarea:focus-visible {
 }
 
 @media (max-width: 480px) {
-  .hero-logo img { width: 100px; }
-  .hero-logo { flex: 0 0 100px; }
+  .hero-logo img { width: 340px; }
+  .hero-logo { flex: 0 0 auto; }
+  .hero-text .tagline { margin-top: 4px; }
   .container { padding: 0 16px; }
   .card { padding: 24px 20px; }
   .feature-card { padding: 24px 20px; }
