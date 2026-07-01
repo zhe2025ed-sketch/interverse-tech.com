@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Our Services - Interverse Technologies</title>
-<meta name="description" content="Professional web design, development, SEO, and digital services to transform your online presence.">
+<meta name="description" content="Explore our WordPress web design, development, SEO, and digital marketing services. Free site review, responsive redesign, local SEO, and maintenance plans starting at $600.">
 <meta name="theme-color" content="#1b212c">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://interverse-tech.com/website-designdevelopment-plans-and-the-service-contract/">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Our Services - Interverse Technologies">
-<meta property="og:description" content="Professional web design, development, SEO, and digital services to transform your online presence.">
+<meta property="og:description" content="Explore our WordPress web design, development, SEO, and digital marketing services. Free site review, responsive redesign, and local SEO plans.">
 <meta property="og:site_name" content="Interverse Technologies">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Our Services - Interverse Technologies">
@@ -20,6 +20,15 @@
 <meta name="twitter:image" content="https://interverse-tech.com/interverse-tech/wp-content/uploads/2024/11/D17B8CB7-C29A-43BB-9FA9-BA72E905C698_1_201_a.jpeg">
 <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
 <link rel="apple-touch-icon" href="images/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Interverse Technologies",
+  "url": "https://interverse-tech.com",
+  "description": "Professional web design, development, and SEO services from Interverse Technologies."
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -269,53 +278,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 <a href="index.html">Interverse Technologies</a> All rights reserved.</p>
+      <p>&copy; <span id="current-year"></span> <a href="index.html">Interverse Technologies</a> All rights reserved.</p>
     </div>
   </div>
 </footer>
 
 <a href="#" id="scroll-up" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></a>
 
-<script>
-(function () {
-  var hamburger = document.getElementById('hamburger');
-  var menu = document.getElementById('primary-menu');
-  if (hamburger && menu) {
-    hamburger.addEventListener('click', function () {
-      hamburger.classList.toggle('active');
-      menu.classList.toggle('open');
-    });
-    document.addEventListener('click', function (e) {
-      if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-        hamburger.classList.remove('active');
-        menu.classList.remove('open');
-      }
-    });
-  }
-
-  var header = document.getElementById('site-header');
-  var scrollBtn = document.getElementById('scroll-up');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 50) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-    if (scrollBtn) scrollBtn.classList.toggle('visible', window.scrollY > 400);
-  });
-
-  var revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(function (el) { observer.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add('visible'); });
-  }
-})();
-</script>
+<script src="js/script.js"></script>
 </body>
 </html>

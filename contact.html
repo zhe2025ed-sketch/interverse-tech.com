@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact Us - Interverse Technologies</title>
-<meta name="description" content="Get in touch with Interverse Technologies for web design, development, and SEO services.">
+<meta name="description" content="Contact Interverse Technologies for expert WordPress web design, development, and SEO services. Get a free website review and consultation. Call (561) 223-9833.">
 <meta name="theme-color" content="#1b212c">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://interverse-tech.com/contact-us/">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contact Us - Interverse Technologies">
-<meta property="og:description" content="Get in touch with Interverse Technologies for web design, development, and SEO services.">
+<meta property="og:description" content="Contact Interverse Technologies for expert WordPress web design, development, and SEO services. Free website review and consultation available.">
 <meta property="og:site_name" content="Interverse Technologies">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact Us - Interverse Technologies">
@@ -20,6 +20,15 @@
 <meta name="twitter:image" content="https://interverse-tech.com/interverse-tech/wp-content/uploads/2024/11/D17B8CB7-C29A-43BB-9FA9-BA72E905C698_1_201_a.jpeg">
 <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
 <link rel="apple-touch-icon" href="images/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Interverse Technologies",
+  "url": "https://interverse-tech.com",
+  "description": "Contact Interverse Technologies for web design, development, and SEO services."
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -109,7 +118,7 @@
                 <div style="width:44px;height:44px;border-radius:var(--radius-sm);background:var(--primary-light);display:flex;align-items:center;justify-content:center;color:var(--primary);flex-shrink:0;"><i class="fas fa-envelope"></i></div>
                 <div>
                   <div style="font-size:12px;color:var(--text-muted);font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;">Email</div>
-                  <div style="font-size:15px;color:var(--text);font-family:var(--font-body);">service@interverse-tech.com</div>
+                  <div style="font-size:15px;color:var(--text);font-family:var(--font-body);" itemprop="email">service@interverse-tech.com</div>
                 </div>
               </div>
               <div style="display:flex;align-items:flex-start;gap:16px;">
@@ -140,12 +149,12 @@
         <div class="reveal">
           <form class="contact-form" style="max-width:100%;margin:0;" onsubmit="return sendByEmail(this)" novalidate>
             <div class="form-group">
-              <input type="text" name="name" id="name" placeholder="Your name" required aria-required="true">
+              <input type="text" name="name" id="name" placeholder="Your name" autocomplete="name" required aria-required="true">
               <label for="name">Your name</label>
               <span class="field-error" role="alert"></span>
             </div>
             <div class="form-group">
-              <input type="email" name="email" id="email" placeholder="Your email" required aria-required="true">
+              <input type="email" name="email" id="email" placeholder="Your email" autocomplete="email" required aria-required="true">
               <label for="email">Your email</label>
               <span class="field-error" role="alert"></span>
             </div>
@@ -195,78 +204,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 <a href="index.html">Interverse Technologies</a> All rights reserved.</p>
+      <p>&copy; <span id="current-year"></span> <a href="index.html">Interverse Technologies</a> All rights reserved.</p>
     </div>
   </div>
 </footer>
 
 <a href="#" id="scroll-up" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></a>
 
-<script>
-function sendByEmail(form) {
-  var name = form.name.value.trim();
-  var email = form.email.value.trim();
-  var subject = form.subject.value.trim();
-  var message = form.message.value.trim();
-  var errors = form.querySelectorAll('.field-error');
-  errors.forEach(function(e){ e.textContent = ''; });
-  if (!name) { form.name.focus(); showToast('Please enter your name', 'error'); return false; }
-  if (!email || !/\S+@\S+\.\S+/.test(email)) { form.email.focus(); showToast('Please enter a valid email', 'error'); return false; }
-  if (!subject) { form.subject.focus(); showToast('Please enter a subject', 'error'); return false; }
-  var body = 'Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message;
-  window.location.href = 'mailto:service@interverse-tech.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  showToast('Email app opened!', 'success');
-  return false;
-}
-function showToast(msg, type) {
-  var t = document.createElement('div');
-  t.className = 'toast toast-' + type;
-  t.textContent = msg;
-  t.setAttribute('role', 'alert');
-  document.body.appendChild(t);
-  setTimeout(function(){ t.classList.add('show'); }, 10);
-  setTimeout(function(){ t.classList.remove('show'); setTimeout(function(){ t.remove(); }, 400); }, 3500);
-}
-
-(function () {
-  var hamburger = document.getElementById('hamburger');
-  var menu = document.getElementById('primary-menu');
-  if (hamburger && menu) {
-    hamburger.addEventListener('click', function () {
-      hamburger.classList.toggle('active');
-      menu.classList.toggle('open');
-    });
-    document.addEventListener('click', function (e) {
-      if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-        hamburger.classList.remove('active');
-        menu.classList.remove('open');
-      }
-    });
-  }
-
-  var header = document.getElementById('site-header');
-  var scrollBtn = document.getElementById('scroll-up');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 50) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-    if (scrollBtn) scrollBtn.classList.toggle('visible', window.scrollY > 400);
-  });
-
-  var revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(function (el) { observer.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add('visible'); });
-  }
-})();
-</script>
+<script src="js/script.js"></script>
 </body>
 </html>
